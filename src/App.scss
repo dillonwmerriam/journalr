@@ -1,0 +1,30 @@
+.App {
+  height:100vh;
+  background-color: #01934D;
+  
+  .sections{
+    width:100%;
+   
+    
+    
+
+    > *{
+      
+      display: flex;
+      position:relative;
+    }
+    
+    .date {
+      display: flex;
+      margin: auto;
+      font-family: 'Berkshire Swash', cursive;
+      font-size: 24pt;
+      height: 50px;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: center;
+      text-underline-position: below;
+    }
+  }
+}
+

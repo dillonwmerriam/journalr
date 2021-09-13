@@ -1,0 +1,43 @@
+.header{
+  background-color:rgba(5, 38, 22, 1);
+  height: 75px;
+  position: fixed;
+  width: 100%;
+
+  
+  .headerItems{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width:100%;
+    color: white;
+
+    
+    .mainMenu{
+      
+
+      span {
+        margin-left: 10px;
+        position:absolute;
+        margin-top:3px;
+      }
+    }
+
+    .title{
+      display:flex;
+      align-items:center;
+      font-size: 36pt;
+      font-family: 'Berkshire Swash', cursive;
+      color: white;
+    }
+
+    .userMenu{
+      display:flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+      font-size: 36px;
+    }
+  }
+}
