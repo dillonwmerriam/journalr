@@ -11,7 +11,7 @@ function App() {
         <div className="sections">
         <Header />
         <div className="date">
-        <span>{currentDate}</span>
+          <span>{currentDate}</span>
         </div>
         <TaskList />
       </div>

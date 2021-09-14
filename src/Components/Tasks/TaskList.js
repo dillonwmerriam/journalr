@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import './taskList.scss';
+import { IconButton } from '@material-ui/core';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 function TaskList() {
   
@@ -8,6 +10,7 @@ function TaskList() {
   const [tasks, setTasks] = useState(['task 1', 'task 2', 'task 3', 'task 4'])
   const [newTask, setNewTask] = useState('')
   const [deletedTasks, setDeletedTasks] = useState([''])
+  const [isActive, setIsActive] = useState(false)
 
   const handleSubmit = () => {
     setTasks([...tasks, newTask])
@@ -24,21 +27,28 @@ function TaskList() {
     }
   }
 
+  const handleShowDelete = (e) => {
+    setIsActive(true)
+  }
+
   return (
     <div className="wrapper">
       <div className="title">
         <span>Daily Tasks</span>
       </div>
-
-      <div className="tasks">
-
-          {tasks.filter(task => !deletedTasks.includes(task)).map(task => (
-            <div>
+  
+      <div className="tasklist">
+        {tasks.filter(task => !deletedTasks.includes(task)).map(task => (
+          <div className='tasks'>
             <li key={task}>{task}</li>
-            <button type='delete' onClick={() => handleDeleteTask(task)}>Delete</button>
-            </div>
-          ))}
-
+            <CancelIcon className="delete"
+            type='delete' 
+            
+            onClick={() => handleDeleteTask(task)}
+            
+            />
+          </div>
+        ))}
       </div>
       <div className="inputContainer">
         <input 
@@ -47,8 +57,6 @@ function TaskList() {
         value={newTask}
         onKeyDown={(e) => handleKeyPress(e)}
         onChange={(e) => {setNewTask(e.target.value)
-        
-        
         }}
         />
       </div>
