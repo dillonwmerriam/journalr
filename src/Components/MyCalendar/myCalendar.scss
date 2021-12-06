@@ -1,0 +1,13 @@
+.calendar_wrapper{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //background-color: purple;
+  align-items: center;
+  padding: 10px;
+
+  h1 {
+    text-decoration: underline;
+  }
+}

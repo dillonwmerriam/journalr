@@ -1,5 +1,5 @@
 .App {
-  height:100vh;
+  height:auto;
   background-color: #01934D;
   
   .sections{
@@ -11,6 +11,7 @@
     > *{
       
       display: flex;
+      //flex-direction: column;
       position:relative;
     }
     

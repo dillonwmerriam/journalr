@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import './taskList.scss';
-import { IconButton } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 
 function TaskList() {
