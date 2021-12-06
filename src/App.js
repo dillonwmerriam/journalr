@@ -1,6 +1,8 @@
 import './App.scss';
 import Header from './Components/Header.js'
 import TaskList from './Components/Tasks/TaskList.js'
+import MyCalendar from './Components/MyCalendar/MyCalendar.js'
+import MyJournal from './Components/MyJournal/MyJournal.js'
 
 function App() {
 
@@ -8,12 +10,14 @@ function App() {
   
   return (
     <div className="App">
-        <div className="sections">
+      <div className="sections">
         <Header />
         <div className="date">
           <span>{currentDate}</span>
         </div>
         <TaskList />
+        <MyCalendar />
+        <MyJournal />
       </div>
     </div>
   );
