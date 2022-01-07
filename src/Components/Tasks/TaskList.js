@@ -9,7 +9,6 @@ function TaskList() {
   const [tasks, setTasks] = useState(['task 1', 'task 2', 'task 3', 'task 4'])
   const [newTask, setNewTask] = useState('')
   const [deletedTasks, setDeletedTasks] = useState([''])
-  const [isActive, setIsActive] = useState(false)
 
   const handleSubmit = () => {
     setTasks([...tasks, newTask])
@@ -26,9 +25,6 @@ function TaskList() {
     }
   }
 
-  const handleShowDelete = (e) => {
-    setIsActive(true)
-  }
 
   return (
     <div className="wrapper">
