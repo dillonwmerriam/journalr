@@ -1,9 +1,10 @@
 .App {
   height:auto;
   background-color: #01934D;
+  display: flex;
   
   .sections{
-    width:100%;
+    width:auto;
    
     
     
@@ -11,7 +12,7 @@
     > *{
       
       display: flex;
-      //flex-direction: column;
+      flex-direction: column;
       position:relative;
     }
     

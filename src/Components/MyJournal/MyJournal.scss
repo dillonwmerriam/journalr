@@ -12,14 +12,31 @@
   .journal{
     
     align-self:center;
-    width: 95%;
+    width: auto;
 
     .rdw-editor-main{
       background-color: white;
-      height: 500px;
+      height: 300px;
     }
     
     
     
   }
+
+
+  }
+  .postButton{  
+    justify-items: center;
+    align-items: center;
+    margin-top:10px;
+
+    button {
+        font-size: 16px;
+        block-size: 30px;
+        margin-bottom: 100px;
+    }
+    button:hover{
+      cursor: pointer;
+    }
 }
+

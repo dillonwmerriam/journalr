@@ -13,19 +13,26 @@ export default function MyJournal() {
   }
 
   return (
-    <div className='myjournal_wrapper'>
-      <div className='title'>
-        <h1>My Journal</h1>
+    <div>
+      <div className='myjournal_wrapper'>
+        <div className='title'>
+          <h1>My Journal</h1>
+        </div>
+        <div className='journal'>
+          <Editor
+            editorState={editorState}
+            toolbarClassName="rich-editor"
+            wrapperClassName="wrapperClassName"
+            editorClassName="editorClassName"
+            onEditorStateChange={onEditorStateChange}
+            placeholder='New Entry'
+          />
+        </div>
+
       </div>
-      <div className='journal'>
-        <Editor
-          editorState={editorState}
-          toolbarClassName="rich-editor"
-          wrapperClassName="wrapperClassName"
-          editorClassName="editorClassName"
-          onEditorStateChange={onEditorStateChange}
-          placeholder='New Entry'
-        />
+      
+      <div className='postButton'>
+        <button>submit</button>
       </div>
     </div>
   )
