@@ -1,6 +1,7 @@
 .myjournal_wrapper{
   display:flex;
   flex-direction: column;
+  margin:20px;
   
   .title{
     
@@ -24,7 +25,7 @@
   }
 
 
-  }
+  
   .postButton{  
     justify-items: center;
     align-items: center;
@@ -38,5 +39,7 @@
     button:hover{
       cursor: pointer;
     }
+  }
 }
+
 

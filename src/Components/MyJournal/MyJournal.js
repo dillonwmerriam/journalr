@@ -42,9 +42,7 @@ export default function MyJournal() {
             placeholder='New Entry'
           />
         </div>
-      </div>
-      
-      <div className='postButton'>
+        <div className='postButton'>
         <button
           onClick = {() => handleSubmit(rawMessage)}
         >submit</button>
@@ -58,6 +56,9 @@ export default function MyJournal() {
         ) )}
 
       </div>
+      </div>
+      
+
     </div>
   )
 }
