@@ -4,27 +4,20 @@
   margin:20px;
   
   .title{
-    
     font: size 36pt;
     font-family: 'Berkshire Swash', cursive;
+    text-decoration: underline;
     align-self: center;
   }
 
-  .journal{
-    
+  .journal{   
     align-self:center;
     width: auto;
-
     .rdw-editor-main{
       background-color: white;
       height: 300px;
     }
-    
-    
-    
   }
-
-
   
   .postButton{  
     justify-items: center;
@@ -39,6 +32,10 @@
     button:hover{
       cursor: pointer;
     }
+  }
+
+  .entries{
+    background-color: white;
   }
 }
 
