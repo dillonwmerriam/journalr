@@ -1,6 +1,8 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import './taskList.scss';
 import CancelIcon from '@material-ui/icons/Cancel';
+import currentDate from '../../App';
 
 function TaskList() {
   
@@ -9,14 +11,24 @@ function TaskList() {
   const [tasks, setTasks] = useState(['task 1', 'task 2', 'task 3', 'task 4'])
   const [newTask, setNewTask] = useState('')
   const [deletedTasks, setDeletedTasks] = useState([''])
+  const dispatch = useDispatch()
+  
 
   const handleSubmit = () => {
     setTasks([...tasks, newTask])
     setNewTask('')
+    dispatch({
+      type: 'ADD_TASK',
+      payload: {key: currentDate, task: newTask}
+    })
   }
 
   const handleDeleteTask = async (task) => {
     setDeletedTasks([...deletedTasks, task])
+    dispatch({
+      type: 'DELETE_TASK',
+      payload: task
+    })
   }
 
   const handleKeyPress = (e) => {

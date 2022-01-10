@@ -14,8 +14,7 @@ export default function MyJournal() {
   const handleSubmit = (rawMessage) => { 
     return(
       setEntries([...entries, rawMessage])
-    )
-    }
+  )}
 
   const onEditorStateChange = editorState => {
     setEditorState(editorState)
@@ -46,19 +45,17 @@ export default function MyJournal() {
         <button
           onClick = {() => handleSubmit(rawMessage)}
         >submit</button>
-      </div>
+        </div>
 
-      <div className='journalEntryList'>
-        {entries.map(entry => (
-          <div className='entries'>
-            <div dangerouslySetInnerHTML={{__html:entry}}></div>
-          </div>
-        ) )}
-
+        <div className='journalEntryList'>
+          {entries.map(entry => (
+            <div className='entries'>
+              <div dangerouslySetInnerHTML={{__html:entry}}></div>
+            </div>
+            )
+          )}
+        </div>
       </div>
-      </div>
-      
-
     </div>
   )
 }

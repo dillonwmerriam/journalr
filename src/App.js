@@ -4,6 +4,8 @@ import TaskList from './Components/Tasks/TaskList.js'
 import MyCalendar from './Components/MyCalendar/MyCalendar.js'
 import MyJournal from './Components/MyJournal/MyJournal.js'
 
+
+
 function App() {
 
   var currentDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) 
