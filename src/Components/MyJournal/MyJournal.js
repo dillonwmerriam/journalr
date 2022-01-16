@@ -1,20 +1,25 @@
-import {useState} from 'react'
+import {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
-import './MyJournal.scss'
-import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import './MyJournal.scss';
+import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import currentDate from '../../App';
 
 export default function MyJournal() {
 
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
   const [rawMessage, setRawMessage] = useState('')
-  const [entries, setEntries] = useState([])
+  const dispatch = useDispatch()
+  const state = useSelector(state => state.journal)
 
   const handleSubmit = (rawMessage) => { 
-    return(
-      setEntries([...entries, rawMessage])
-  )}
+    dispatch({
+      type:'NEW_ENTRY',
+      payload:{key:currentDate, entry:rawMessage}
+    })
+  }
 
   const onEditorStateChange = editorState => {
     setEditorState(editorState)
@@ -48,9 +53,9 @@ export default function MyJournal() {
         </div>
 
         <div className='journalEntryList'>
-          {entries.map(entry => (
+          {state.entries.map(item => (
             <div className='entries'>
-              <div dangerouslySetInnerHTML={{__html:entry}}></div>
+              <div dangerouslySetInnerHTML={{__html:item.entry}}></div>
             </div>
             )
           )}

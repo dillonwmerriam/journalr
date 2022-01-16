@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import './taskList.scss';
 import CancelIcon from '@material-ui/icons/Cancel';
@@ -6,21 +6,19 @@ import currentDate from '../../App';
 
 function TaskList() {
   
-  //const tasks = useState(['implement task list', 'make calendar', 'get groceries'])
-  
-  const [tasks, setTasks] = useState(['task 1', 'task 2', 'task 3', 'task 4'])
+  const state = useSelector(state => state.tasks)
   const [newTask, setNewTask] = useState('')
   const [deletedTasks, setDeletedTasks] = useState([''])
   const dispatch = useDispatch()
-  
 
   const handleSubmit = () => {
-    setTasks([...tasks, newTask])
-    setNewTask('')
+    
     dispatch({
       type: 'ADD_TASK',
       payload: {key: currentDate, task: newTask}
     })
+    setNewTask('')
+    
   }
 
   const handleDeleteTask = async (task) => {
@@ -37,7 +35,6 @@ function TaskList() {
     }
   }
 
-
   return (
     <div className="wrapper">
       <div className="title">
@@ -45,13 +42,13 @@ function TaskList() {
       </div>
   
       <div className="tasklist">
-        {tasks.filter(task => !deletedTasks.includes(task)).map(task => (
+        {state.tasks.filter(item => !deletedTasks.includes(item)).map(item => (
           <div className='tasks'>
-            <li key={task}>{task}</li>
+            <li key={item.key}>{item.task}</li>
             <CancelIcon className="delete"
             type='delete' 
             
-            onClick={() => handleDeleteTask(task)}
+            onClick={() => handleDeleteTask(item)}
             
             />
           </div>
@@ -70,10 +67,8 @@ function TaskList() {
       <div className="submit">
         <button 
           type='submit' 
-          class="block" 
-          
           onClick={handleSubmit}>Submit</button>
-          
+        <button onClick={console.log(state)}>tasks?</button>
       </div>
     </div>
   )

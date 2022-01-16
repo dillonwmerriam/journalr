@@ -1,8 +1,5 @@
 const INITIAL_STATE = {
-  tasks: [
-
-    
-  ],
+  tasks: [{key:'testKey', task:'test task 1'}, {key:'testKey2', task:'test task 2'}],
   deletedTasks: [],
 }
 
@@ -14,7 +11,7 @@ function tasksReducer(state = INITIAL_STATE, action) {
 
     case 'DELETE_TASK':
       state.deletedTasks = [...state.deletedTasks, action.payload]
-      state.tasks = state.tasks.filter(task => !state.deletedTasks.includes(task.key))
+      //state.tasks = state.tasks.filter(task => !state.deletedTasks.includes(task.key))
       return {...state, state}
     
     default:
