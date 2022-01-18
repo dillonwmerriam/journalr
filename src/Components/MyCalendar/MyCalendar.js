@@ -1,10 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Calendar from 'react-calendar';
+import {useDispatch, useSelector} from 'react-redux';
 import './myCalendar.scss'
 
 export default function MyCalendar() {
 
+  const state = useSelector(state => state.date)
+  const dispatch = useDispatch()
   const[date, setDate] = useState(new Date());
+  const dateString = date.toDateString()
+
+  useEffect(() => {
+    dispatch({
+      type: 'SET_DATE',
+      payload: {dateString}
+    })
+  })
 
   return (
     <div className='calendar_wrapper'>
@@ -14,7 +25,7 @@ export default function MyCalendar() {
       </div>
       <p className='text-center'>
         <span className='bold'>Selected Date:</span>{' '}
-        {date.toDateString()}
+        {state.date}
       </p>
     </div>
   );

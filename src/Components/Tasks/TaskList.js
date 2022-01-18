@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import './taskList.scss';
 import CancelIcon from '@material-ui/icons/Cancel';
 import currentDate from '../../App';
+import date from '../MyCalendar/MyCalendar'
 
 function TaskList() {
   
@@ -10,6 +11,7 @@ function TaskList() {
   const [newTask, setNewTask] = useState('')
   const [deletedTasks, setDeletedTasks] = useState([''])
   const dispatch = useDispatch()
+  
 
   const handleSubmit = () => {
     
@@ -18,7 +20,7 @@ function TaskList() {
       payload: {key: currentDate, task: newTask}
     })
     setNewTask('')
-    
+    console.log(date.toDateString())
   }
 
   const handleDeleteTask = async (task) => {
