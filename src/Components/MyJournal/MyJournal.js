@@ -5,6 +5,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import './MyJournal.scss';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 import currentDate from '../../App';
 
 export default function MyJournal() {
@@ -13,11 +14,12 @@ export default function MyJournal() {
   const [rawMessage, setRawMessage] = useState('')
   const dispatch = useDispatch()
   const state = useSelector(state => state.journal)
+  var selectedDay = new Date().toLocaleDateString('en-us', { month:"numeric", day:"numeric", year:"numeric" }) 
 
   const handleSubmit = (rawMessage) => { 
     dispatch({
       type:'NEW_ENTRY',
-      payload:{key:currentDate, entry:rawMessage}
+      payload:{key:currentDate, entry:rawMessage, day:selectedDay}
     })
   }
 
@@ -53,7 +55,7 @@ export default function MyJournal() {
         </div>
 
         <div className='journalEntryList'>
-          {state.entries.map(item => (
+          {state.entries.filter(e=> e.day === selectedDay).map(item => (
             <div className='entries'>
               <div dangerouslySetInnerHTML={{__html:item.entry}}></div>
             </div>
