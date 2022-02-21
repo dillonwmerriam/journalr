@@ -1,9 +1,8 @@
 import './App.scss';
-import Header from './Components/Header.js'
-import TaskList from './Components/Tasks/TaskList.js'
-import MyCalendar from './Components/MyCalendar/MyCalendar.js'
-import MyJournal from './Components/MyJournal/MyJournal.js'
+import Home from './Home.js'
+import NewPost from './NewPost'
 import { useSelector } from 'react-redux'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
@@ -17,17 +16,13 @@ function App() {
   console.log(JSON.stringify(state));
   
   return (
-    <div className="App">
-      <div className="sections">
-        <Header />
-        <div className="date">
-          <span>{currentDate}</span>
-        </div>
-        <TaskList />
-        <MyCalendar />
-        <MyJournal />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+          <Route index element={<Home />} />
+          <Route path="newpost" element={<NewPost />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
