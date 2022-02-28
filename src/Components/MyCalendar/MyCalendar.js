@@ -1,16 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Calendar from 'react-calendar';
-import './myCalendar.scss'
+import './MyCalendar.scss';
 
-export default function MyCalendar() {
+//import { Link } from 'react-router-dom'
 
-  const[date, setDate] = useState(new Date());
+export default function MyCalendar({date}) {
+
+  //const[date, setDate] = useState(new Date());
+  //useEffect(()=>{console.log(date)})
+  //useEffect( () => {<Link to={date.toString}/>} )
 
   return (
     <div className='calendar_wrapper'>
       <h1 className='calendar_title'>My Calendar</h1>
       <div className='calendar-container'>
-        <Calendar onChange={setDate} value={date} />
+        <Calendar value={date} />
       </div>
       <p className='text-center'>
         <span className='bold'>Selected Date:</span>{' '}
