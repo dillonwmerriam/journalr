@@ -4,9 +4,9 @@ import './MyCalendar.scss';
 
 //import { Link } from 'react-router-dom'
 
-export default function MyCalendar({date}) {
+export default function MyCalendar() {
 
-  //const[date, setDate] = useState(new Date());
+  const[date, setDate] = useState(new Date());
   //useEffect(()=>{console.log(date)})
   //useEffect( () => {<Link to={date.toString}/>} )
 

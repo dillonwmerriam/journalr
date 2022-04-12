@@ -12,7 +12,7 @@ var date = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeri
 //useEffect( ()=> setDate({date}))
 
 
-export default function Home(props) {
+export default function Home() {
   //const[date, setDate] = useState(new Date());
  // useEffect( ()=> setDate({date}), [])
  // useEffect( ()=> console.log('HOME.js line 18: '+{date}), [])
@@ -27,11 +27,11 @@ export default function Home(props) {
         <span>{date}</span>
       </div>
       <TaskList />
-      <MyCalendar date={props.date}/>
+      <MyCalendar />
       <div>
         <Link to="/newpost">New Post</Link>
       </div>
-      <MyJournal data={date} />
+      <MyJournal />
     </div>
   </div>
   )
