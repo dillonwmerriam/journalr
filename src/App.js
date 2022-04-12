@@ -1,6 +1,6 @@
 import './App.scss';
 import Home from './Home.js'
-import NewPost from './NewPost'
+import NewPost from './NewPost.js'
 import { useSelector } from 'react-redux'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
