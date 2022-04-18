@@ -16,13 +16,16 @@ export default function Home() {
   //const[date, setDate] = useState(new Date());
  // useEffect( ()=> setDate({date}), [])
  // useEffect( ()=> console.log('HOME.js line 18: '+{date}), [])
+ const [entries, setEntries] = useState([]);
+ 
+ // This method fetches the records from the database.
 
 
   return (
     <div className="App">
     <div className="sections">
       <Header />
-      <span>test</span>
+      
       <div className="date">
         <span>{date}</span>
       </div>

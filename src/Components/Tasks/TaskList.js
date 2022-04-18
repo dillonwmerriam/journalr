@@ -68,7 +68,6 @@ function TaskList() {
         <button 
           type='submit' 
           onClick={handleSubmit}>Submit</button>
-        <button onClick={console.log(state)}>tasks?</button>
       </div>
     </div>
   )

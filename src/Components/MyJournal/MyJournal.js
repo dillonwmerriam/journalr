@@ -1,5 +1,4 @@
-import {useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useState, useEffect } from 'react';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
@@ -12,15 +11,33 @@ export default function MyJournal() {
 
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
   const [rawMessage, setRawMessage] = useState('')
-  const dispatch = useDispatch()
-  const state = useSelector(state => state.journal)
+  const [entries, setEntries] = useState([])
   var selectedDay = new Date().toLocaleDateString('en-us', { month:"numeric", day:"numeric", year:"numeric" }) 
 
+
+  useEffect(() => {
+    async function getEntries() {
+      const response = await fetch(`http://localhost:5000/entries/`);
+  
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+  
+      const entries = await response.json();
+      JSON.stringify(entries);
+      setEntries(entries);
+      
+    }
+  
+    getEntries();
+  
+    return;
+  }, [entries.length]);
+
   const handleSubmit = (rawMessage) => { 
-    dispatch({
-      type:'NEW_ENTRY',
-      payload:{key:currentDate, entry:rawMessage, day:selectedDay}
-    })
+    console.log(rawMessage)
   }
 
   const onEditorStateChange = editorState => {
@@ -55,7 +72,7 @@ export default function MyJournal() {
         </div>
 
         <div className='journalEntryList'>
-          {state.entries.filter(e=> e.day === selectedDay).map(item => (
+          {entries.filter(e=> e.date === selectedDay).map(item => (
             <div className='entries'>
               <div dangerouslySetInnerHTML={{__html:item.entry}}></div>
             </div>
