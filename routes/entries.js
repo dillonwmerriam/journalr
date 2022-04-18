@@ -21,9 +21,8 @@ entryRoutes.route("/entries").get(function (req, res) {
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
-      console.log(result)
     });
-   
+    console.log(res)
 });
 
 // This section will help you get a single record by id
