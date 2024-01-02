@@ -50,6 +50,23 @@ export default function MyJournal() {
       )
   }
 
+  
+  
+  
+  
+  // const { MongoClient } = require("mongodb");
+ 
+  // // Replace the following with your Atlas connection string                                                                                                                                        
+  // const url = "<connection-string>"
+  // const client = new MongoClient(url);
+   
+  //  // Reference the database to use
+  //  const dbName = "gettingStarted";
+                        
+   
+
+
+
   return (
     <div>
       <div className='myjournal_wrapper'>
