@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  entries: [{key:'testKey', entry:'<span>testing testing 123<span>', day: '2/17/2022'}, {key:'testKey2', entry:'<span>what up buttercup<span>', day: '2/18/2022'}],
+  entries: [{key:'testKey', entry:'<span>testing testing 123<span>', day: '1/01/2024'}, {key:'testKey2', entry:'<span>what up buttercup<span>', day: '1/01/2024'}],
   deletedEntries: []
 }
 

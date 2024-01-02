@@ -38,6 +38,7 @@ export default function MyJournal() {
 
   const handleSubmit = (rawMessage) => { 
     console.log(rawMessage)
+    setEntries(rawMessage)
   }
 
   const onEditorStateChange = editorState => {
@@ -72,7 +73,7 @@ export default function MyJournal() {
         </div>
 
         <div className='journalEntryList'>
-          {entries.filter(e=> e.date === selectedDay).map(item => (
+          {entries.filter(e=> e.day === selectedDay).map(item => (
             <div className='entries'>
               <div dangerouslySetInnerHTML={{__html:item.entry}}></div>
             </div>

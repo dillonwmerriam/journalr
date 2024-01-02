@@ -17,3 +17,5 @@ app.listen(port, () => {
   });
   console.log(`Server is running on port: ${port}`);
 });
+
+//mongodb+srv://dillonmerriam:<password>@cluster0.dqxwf.mongodb.net/?retryWrites=true&w=majority
